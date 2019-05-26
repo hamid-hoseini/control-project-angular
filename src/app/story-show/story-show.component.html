@@ -1,3 +1,39 @@
-<p>
-  story-show works!
-</p>
+<div class="button-row">
+  <a mat-fab color="primary" [routerLink]="['/stories']"><mat-icon>list</mat-icon></a>
+</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title><h2>{{story.title}}</h2></mat-card-title>
+    <mat-card-subtitle>{{story.description}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <dl>
+      <dt>Story No:</dt>
+      <dd>{{story.storyNo}}</dd>
+      <dt>Title:</dt>
+      <dd>{{story.title}}</dd>
+      <dt>Type:</dt>
+      <dd>{{story.type}}</dd>
+      <dt>Release:</dt>
+      <dd>{{story.release}}</dd>
+      <dt>Status:</dt>
+      <dd>{{story.status}}</dd>
+      <dt>Branch:</dt>
+      <dd>{{story.branch}}</dd>
+      <dt>Commit:</dt>
+      <dd>{{story.commit}}</dd>
+      <dt>Update Date:</dt>
+      <dd>{{story.date | date}}</dd>
+      <dt>Release Date:</dt>
+      <dd>{{story.releaseDate | date}}</dd>
+      <dt>Developer:</dt>
+      <dd>{{story.developer}}</dd>
+      <dt>Description:</dt>
+      <dd>{{story.description}}</dd>
+    </dl>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-fab color="primary" [routerLink]="['/story-edit', story.key]"><mat-icon>edit</mat-icon></a>
+    <a mat-fab color="warn" (click)="deleteStory(story.key)"><mat-icon>delete</mat-icon></a>
+  </mat-card-actions>
+</mat-card>
