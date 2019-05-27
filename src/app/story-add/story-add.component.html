@@ -2,38 +2,37 @@
     <a mat-fab color="primary" [routerLink]="['/stories']"><mat-icon>list</mat-icon></a>
   </div>
   <form [formGroup]="storyForm" (ngSubmit)="onFormSubmit(storyForm.value)">
-      <mat-form-field class="example-full-width">
-          <input matInput placeholder="Story No" formControlName="storyNo"
-                 [errorStateMatcher]="matcher">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Story No" formControlName="storyNo"
+                  [errorStateMatcher]="matcher">
+            <mat-error>
+              <span *ngIf="!storyForm.get('storyNo').valid && storyForm.get('storyNo').touched">Please enter Story No.</span>
+            </mat-error>
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Title" formControlName="title"
+                [errorStateMatcher]="matcher">
           <mat-error>
-            <span *ngIf="!storyForm.get('storyNo').valid && storyForm.get('storyNo').touched">Please enter Story No.</span>
+            <span *ngIf="!storyForm.get('title').valid && storyForm.get('title').touched">Please enter Board Title</span>
           </mat-error>
         </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Title" formControlName="title"
-             [errorStateMatcher]="matcher">
-      <mat-error>
-        <span *ngIf="!storyForm.get('title').valid && storyForm.get('title').touched">Please enter Board Title</span>
-      </mat-error>
-    </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Status" formControlName="status"
+                  [errorStateMatcher]="matcher">
+            <mat-error>
+              <span *ngIf="!storyForm.get('status').valid && storyForm.get('status').touched">Please enter status</span>
+            </mat-error>
+          </mat-form-field>
 
-
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="Status" formControlName="status"
-               [errorStateMatcher]="matcher">
-        <mat-error>
-          <span *ngIf="!storyForm.get('status').valid && storyForm.get('status').touched">Please enter status</span>
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width">
-          <input matInput placeholder="Type" formControlName="type"
-                 [errorStateMatcher]="matcher">
-          <mat-error>
-            <span *ngIf="!storyForm.get('type').valid && storyForm.get('type').touched">Please enter type</span>
-          </mat-error>
-        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Type" formControlName="type"
+                  [errorStateMatcher]="matcher">
+            <mat-error>
+              <span *ngIf="!storyForm.get('type').valid && storyForm.get('type').touched">Please enter type</span>
+            </mat-error>
+          </mat-form-field>
 
         <mat-form-field class="example-full-width">
             <input matInput placeholder="Branch" formControlName="branch"
@@ -43,36 +42,39 @@
             </mat-error>
           </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Commit" formControlName="commit"
-                   [errorStateMatcher]="matcher">
-          </mat-form-field>
-
           <mat-form-field class="example-full-width">
-              <input matInput placeholder="Developer" formControlName="developer"
+              <input matInput placeholder="Release" formControlName="release"
                      [errorStateMatcher]="matcher">
               <mat-error>
-                <span *ngIf="!storyForm.get('developer').valid && storyForm.get('developer').touched">Please enter developer</span>
+                <span *ngIf="!storyForm.get('release').valid && storyForm.get('release').touched">Please enter branch</span>
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Date" formControlName="date"
-                       [errorStateMatcher]="matcher">
-              </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Commit" formControlName="commit">
+          </mat-form-field>
 
-              <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Release Date" formControlName="releaseDate"
-                         [errorStateMatcher]="matcher">
-                </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Developer" formControlName="developer"
+                    [errorStateMatcher]="matcher">
+            <mat-error>
+              <span *ngIf="!storyForm.get('developer').valid && storyForm.get('developer').touched">Please enter developer</span>
+            </mat-error>
+          </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Description" formControlName="description"
-             [errorStateMatcher]="matcher"></textarea>
-      <mat-error>
-        <span *ngIf="!storyForm.get('description').valid && storyForm.get('description').touched">Please enter Board Description</span>
-      </mat-error>
-    </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Date" formControlName="date">
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Release Date" formControlName="releaseDate">
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Description" formControlName="description"
+                  ></textarea>
+        </mat-form-field>
+
     <div class="button-row">
       <button type="submit" [disabled]="!storyForm.valid" mat-fab color="primary"><mat-icon>save</mat-icon></button>
     </div>

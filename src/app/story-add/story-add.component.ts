@@ -29,15 +29,15 @@ export class StoryAddComponent implements OnInit {
     this.storyForm = this.formBuilder.group({
       'storyNo' : [null, Validators.required],
       'title' : [null, Validators.required],
-      'developer' : [null, Validators.required],
-      'release' : [null, Validators.required],
       'status' : [null, Validators.required],
       'type' : [null, Validators.required],
+      'release' : [null, Validators.required],
+      'developer' : [null, Validators.required],
       'branch' : [null, Validators.required],
       'commit' : [null],
       'date' : [null],
       'releaseDate' : [null],
-      'description' : [null, Validators.required]
+      'description' : [null]
     });
   }
 
