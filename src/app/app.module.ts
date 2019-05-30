@@ -1,7 +1,6 @@
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import {
   MatInputModule,
   MatPaginatorModule,
@@ -22,33 +21,6 @@ import { StoryAddComponent } from './story-add/story-add.component';
 import { StoryEditComponent } from './story-edit/story-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-const appRoutes: Routes = [
-  {
-    path: 'stories',
-    component: StoryListComponent,
-    data: { title: 'Stories List' }
-  },
-  {
-    path: 'story-details/:id',
-    component: StoryShowComponent,
-    data: { title: 'Story Details' }
-  },
-  {
-    path: 'story-create',
-    component: StoryAddComponent,
-    data: { title: 'Create Story' }
-  },
-  {
-    path: 'story-edit/:id',
-    component: StoryEditComponent,
-    data: { title: 'Edit Story' }
-  },
-  { path: '',
-    redirectTo: '/stories',
-    pathMatch: 'full'
-  }
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +30,7 @@ const appRoutes: Routes = [
     StoryEditComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
